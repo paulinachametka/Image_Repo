@@ -6,16 +6,17 @@
 </head>
 <body>
 
-<h1 class="center">My First Heading</h1>
+<h1 class="center">AI Generated Art</h1>
 
+{% for row in info | batch(3, '&nbsp;') %}
 <div class="row">
+    {% for item in row %}
     <div class="column">
-      <img src="{{url_for('static', filename=random_image)}}">
+        <img src="{{url_for('static', filename=item[0])}}" style="width:75%">
     </div>
-    <div class="column">
-        <img src="{{url_for('static', filename=random_image)}}">
-    </div>
+    {% endfor %}
 </div>
+{% endfor %}
   
 
 </body>

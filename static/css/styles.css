@@ -1,15 +1,21 @@
+
+
 .center {
     text-align: center;
 }
+
+.column {
+  background-color: rgb(135, 180, 222);
+  float: left;
+  width: 33.33%;
+  padding-bottom: 25px;
+  display: flex;
+  justify-content: center;
+}
+
 
 .row::after {
   content: "";
   clear: both;
   display: table;
-}
-
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 5px;
 }
