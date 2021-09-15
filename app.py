@@ -24,9 +24,11 @@ mycursor.execute("SELECT path FROM images")
 
 image_paths = mycursor.fetchall()
 
-mycursor.execute("SELECT name FROM images")
+mycursor.execute("SELECT * FROM images")
 
-image_names = mycursor.fetchall()
+all_info = mycursor.fetchall()
+print(all_info)
+
 
 
 app = Flask(__name__)
@@ -35,8 +37,7 @@ app = Flask(__name__)
 def hello_world():
     #return render_template('index.html', image=image) 
     info = image_paths
-    names = image_names
-    return render_template('index.html',info = info, names = names)
+    return render_template('index.html',info = info,all_info= all_info )
 
 
 

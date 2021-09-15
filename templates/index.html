@@ -8,13 +8,13 @@
 
 <h1 class="center">AI Generated Art</h1>
 
-{% for row in info | batch(3, '&nbsp;') %}
+{% for row in all_info | batch(3, '&nbsp;') %}
 <div class="row">
     {% for item in row %}
     <div class="column">
         <figure>
-            <img src="{{url_for('static', filename=item[0])}}" style="width:75%">
-            <figcaption>Caption goes here</figcaption>
+            <img src="{{url_for('static', filename=item[2])}}" style="width:75%">
+            <figcaption>{{item[1]}}</figcaption>
         </figure>
     </div>
     {% endfor %}
