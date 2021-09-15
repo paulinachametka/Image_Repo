@@ -1,20 +1,40 @@
 import requests
 from random_word import RandomWords
-r = RandomWords()
+import urllib.request
+import json
+import random
+from database_info import *
 
-# Return a single random word
-word = r.get_random_word()
+def generate_image():
+    url = urllib.request.urlopen("https://raw.githubusercontent.com/sindresorhus/mnemonic-words/master/words.json")
+    words = json.loads(url.read())
+    word = random.choice(words)
 
-f = open('C:/Users/pauli/Desktop/api_key.txt', "r")
-secret_key = str(f.read())
+    # Return a single random word
+
+    f = open('C:/Users/pauli/Desktop/api_key.txt', "r")
+    secret_key = str(f.read())
+
+    r = requests.post(
+        "https://api.deepai.org/api/text2img",
+        data={
+            'text': word,
+        },
+        headers={'api-key': secret_key}
+    )
+    #print(r.json())
+    url = r.json().get('output_url')
+    #url = 'https://api.deepai.org/job-view-file/773a9572-98f5-4d6a-a933-cc929b0f7df9/outputs/output.jpg'
+
+    string = r"C:\Users\pauli\Documents\Github\Image_Repo\static\images\ " + str(word) + '.png'
+
+    filename = r"{}".format(string)
+    filename = filename.replace(' ','')
+
+    urllib.request.urlretrieve(url, filename)
 
 
-print(word)
-r = requests.post(
-    "https://api.deepai.org/api/text2img",
-    data={
-        'text': word,
-    },
-    headers={'api-key': secret_key}
-)
-print(r.json())
+    path = "images/" + word + ".png"
+    insert_data(word,path )
+
+

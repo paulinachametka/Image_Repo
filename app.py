@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import mysql.connector, os
 from getpass import getpass
+from image_generator import *
 
 f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
 words = f.read().split()
@@ -15,44 +16,27 @@ mydb = mysql.connector.connect(
   database="dbimages"
 )
 
-#mycursor = mydb.cursor()
-#mycursor.execute("SELECT * FROM images")
-#myresult = mycursor.fetchall()
 
-#for x in myresult:
-#  print(x)
+generate_image()
 
-#sql = "DROP TABLE images"
-
-#mycursor.execute(sql)
-
-#mycursor.execute("CREATE TABLE images (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), path VARCHAR(255))")
 mycursor = mydb.cursor()
-sql = "INSERT INTO images (name, path) VALUES (%s, %s)"
-val = ("Art 3", "images/unnamed.png")
-mycursor.execute(sql, val)
-mydb.commit()
-
-#print(mycursor.rowcount, "record inserted.")
-
-
-
-
 mycursor.execute("SELECT path FROM images")
 
 image_paths = mycursor.fetchall()
 
-for x in image_paths:
-  print(x)
+mycursor.execute("SELECT name FROM images")
+
+image_names = mycursor.fetchall()
+
 
 app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    image = "images/image.png" 
     #return render_template('index.html', image=image) 
     info = image_paths
-    return render_template('index.html',info = info, image = image)
+    names = image_names
+    return render_template('index.html',info = info, names = names)
 
 
 

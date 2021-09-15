@@ -12,7 +12,10 @@
 <div class="row">
     {% for item in row %}
     <div class="column">
-        <img src="{{url_for('static', filename=item[0])}}" style="width:75%">
+        <figure>
+            <img src="{{url_for('static', filename=item[0])}}" style="width:75%">
+            <figcaption>Caption goes here</figcaption>
+        </figure>
     </div>
     {% endfor %}
 </div>
