@@ -101,3 +101,26 @@ def query_data():
 
     #mycursor.execute("CREATE TABLE images (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), path VARCHAR(255))")
 
+def delete_image(): 
+
+    f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
+    words = f.read().split()
+    db_user = words[0]
+    db_password = words[1]
+
+    mydb = mysql.connector.connect(
+    host="localhost",
+    user=db_user,
+    password=db_password,
+    database="dbimages"
+    )
+
+    mycursor = mydb.cursor()
+
+    sql = "DELETE FROM images WHERE name = 'wish'"
+
+    mycursor.execute(sql)
+
+    mydb.commit()
+
+    print(mycursor.rowcount, "record(s) deleted")
