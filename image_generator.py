@@ -33,12 +33,12 @@ def generate_image():
 
 
     response = requests.get(url)
-    img = Image.open(BytesIO(response.content))
+    #img = Image.open(BytesIO(response.content))
 
-    name = 'static/images/' + str(word) + '.jpg'
+    #name = 'static/images/' + str(word) + '.jpg'
 
-    print(name)
-    img.save(name, 'JPEG')
+    #print(name)
+    #img.save(name, 'JPEG')
 
     #filename = r"{}".format(string)
     #filename = filename.replace(' ','')
@@ -46,7 +46,7 @@ def generate_image():
     #urllib.request.urlretrieve(url, filename)
 
 
-    path = "images/" + word + ".jpg"
+    #path = "images/" + word + ".jpg"
     #insert_data(word,path )
 
 
