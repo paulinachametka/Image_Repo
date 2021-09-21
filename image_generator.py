@@ -47,6 +47,6 @@ def generate_image():
 
 
     path = "images/" + word + ".jpg"
-    #insert_data(word,path )
+    insert_data(word,path )
 
 
