@@ -35,7 +35,7 @@ def generate_image():
     response = requests.get(url)
     img = Image.open(BytesIO(response.content))
 
-    #name = 'static/images/' + str(word) + '.jpg'
+    name = 'static/images/' + str(word) + '.jpg'
 
     #print(name)
     #img.save(name, 'JPEG')
