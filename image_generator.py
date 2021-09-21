@@ -3,6 +3,8 @@ import urllib.request
 import json
 import random
 from database_info import *
+from io import BytesIO
+from PIL import Image
 
 def generate_image():
     url = urllib.request.urlopen("https://raw.githubusercontent.com/sindresorhus/mnemonic-words/master/words.json")
@@ -29,13 +31,22 @@ def generate_image():
     #string = r"C:\Users\pauli\Documents\Github\Image_Repo\static\images\ " + str(word) + '.png'
     string = r"C:\Users\pauli\Documents\Github\Image_Repo\static\images\ " + str(word) + '.png'
 
-    filename = r"{}".format(string)
-    filename = filename.replace(' ','')
 
-    urllib.request.urlretrieve(url, filename)
+    response = requests.get(url)
+    img = Image.open(BytesIO(response.content))
+
+    name = 'static/images/' + str(word) + '.jpg'
+
+    print(name)
+    img.save(name, 'JPEG')
+
+    #filename = r"{}".format(string)
+    #filename = filename.replace(' ','')
+
+    #urllib.request.urlretrieve(url, filename)
 
 
-    path = "images/" + word + ".png"
+    path = "images/" + word + ".jpg"
     insert_data(word,path )
 
 
