@@ -10,6 +10,7 @@ def generate_image():
     url = urllib.request.urlopen("https://raw.githubusercontent.com/sindresorhus/mnemonic-words/master/words.json")
     words = json.loads(url.read())
     word = random.choice(words)
+    print(word)
 
     # Return a single random word
 
