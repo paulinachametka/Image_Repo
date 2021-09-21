@@ -46,7 +46,7 @@ def generate_image():
     #urllib.request.urlretrieve(url, filename)
 
 
-    #path = "images/" + word + ".jpg"
-    #insert_data(word,path )
+    path = "images/" + word + ".jpg"
+    insert_data(word,path )
 
 
