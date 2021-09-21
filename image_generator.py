@@ -11,15 +11,16 @@ def generate_image():
 
     # Return a single random word
 
-    f = open('C:/Users/pauli/Desktop/api_key.txt', "r")
-    secret_key = str(f.read())
+    #f = open('C:/Users/pauli/Desktop/api_key.txt', "r")
+    #secret_key = str(f.read())
+    api_key = os.getenv("api_key", "optional-default")
 
     r = requests.post(
         "https://api.deepai.org/api/text2img",
         data={
             'text': word,
         },
-        headers={'api-key': secret_key}
+        headers={'api-key': api_key}
     )
     #print(r.json())
     url = r.json().get('output_url')
