@@ -33,11 +33,11 @@ def create_table():
     db_db = os.getenv("db_db", "optional-default")
 
     mydb = mysql.connector.connect(
-    host="localhost",
-    user=db_user,
+    host=db_host,
+    user= db_user,
     password=db_password,
-    database="dbimages"
-)
+    database=db_db
+    )
 
     mycursor = mydb.cursor()
     mycursor.execute("CREATE TABLE images (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), path VARCHAR(255))")
