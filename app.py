@@ -3,10 +3,10 @@ import mysql.connector, os
 from getpass import getpass
 from image_generator import *
 
-f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
-words = f.read().split()
-db_user = words[0]
-db_password = words[1]
+#f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
+#words = f.read().split()
+db_user = os.getenv("db_user", "optional-default")
+db_password = os.getenv("db_password", "optional-default")
 
 
 mydb = mysql.connector.connect(

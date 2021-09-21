@@ -4,10 +4,10 @@ import mysql.connector, os
 
 def drop_table(): 
 
-    f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
-    words = f.read().split()
-    db_user = words[0]
-    db_password = words[1]
+    #f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
+    #words = f.read().split()
+    db_user = os.getenv("db_user", "optional-default")
+    db_password = os.getenv("db_password", "optional-default")
 
     mydb = mysql.connector.connect(
     host="localhost",
@@ -21,10 +21,10 @@ def drop_table():
     mycursor.execute(sql)
 
 def create_table(): 
-    f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
-    words = f.read().split()
-    db_user = words[0]
-    db_password = words[1]
+    #f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
+    #words = f.read().split()
+    db_user = os.getenv("db_user", "optional-default")
+    db_password = os.getenv("db_password", "optional-default")
 
     mydb = mysql.connector.connect(
     host="localhost",
@@ -40,10 +40,10 @@ def create_table():
 
 def insert_data(name,path): 
 
-    f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
-    words = f.read().split()
-    db_user = words[0]
-    db_password = words[1]
+    #f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
+    #words = f.read().split()
+    db_user = os.getenv("db_user", "optional-default")
+    db_password = os.getenv("db_password", "optional-default")
 
 
     mydb = mysql.connector.connect(
@@ -64,15 +64,12 @@ def insert_data(name,path):
     #print(mycursor.rowcount, "record inserted.")
 
 
-
-
-
 def query_data():
 
-    f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
-    words = f.read().split()
-    db_user = words[0]
-    db_password = words[1]
+    #f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
+    #words = f.read().split()
+    db_user = os.getenv("db_user", "optional-default")
+    db_password = os.getenv("db_password", "optional-default")
 
 
     mydb = mysql.connector.connect(
@@ -103,10 +100,10 @@ def query_data():
 
 def delete_image(): 
 
-    f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
-    words = f.read().split()
-    db_user = words[0]
-    db_password = words[1]
+    #f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
+    #words = f.read().split()
+    db_user = os.getenv("db_user", "optional-default")
+    db_password = os.getenv("db_password", "optional-default")
 
     mydb = mysql.connector.connect(
     host="localhost",
