@@ -38,7 +38,7 @@ def generate_image():
     name = 'static/images/' + str(word) + '.jpg'
 
     #print(name)
-    #img.save(name, 'JPEG')
+    img.save(name, 'JPEG')
 
     #filename = r"{}".format(string)
     #filename = filename.replace(' ','')
