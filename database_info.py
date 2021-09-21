@@ -117,10 +117,11 @@ def delete_image():
 
     mycursor = mydb.cursor()
 
-    sql = "DELETE FROM images WHERE name = 'wish'"
+    sql = "DELETE FROM images WHERE name = 'lend'"
 
     mycursor.execute(sql)
 
     mydb.commit()
 
     print(mycursor.rowcount, "record(s) deleted")
+

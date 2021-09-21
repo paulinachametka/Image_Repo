@@ -7,9 +7,14 @@
 <body>
 
 <h1 class="center">AI Generated Art</h1>
+<div class="center">
+    <p><a>Create</a></p>
+    <p><a>About</a></p>
+    <p><a>Search</a></p>
+</div>
 
-{% for row in all_info | batch(3, '&nbsp;') %}
-<div class="row">
+{% for row in all_info | batch(4, '&nbsp;') %}
+<div class="row center">
     {% for item in row %}
     <div class="column">
         <figure>

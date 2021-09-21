@@ -6,7 +6,7 @@
 
 .column {
   float: left;
-  width: 33.33%;
+  width: 25%;
   padding-bottom: 25px;
   display: flex;
   justify-content: center;
@@ -17,4 +17,12 @@
   content: "";
   clear: both;
   display: table;
+}
+
+
+
+p {
+  display: inline;
+  margin: 5%;
+  font-weight: bold;
 }
