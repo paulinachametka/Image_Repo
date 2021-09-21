@@ -138,4 +138,4 @@ def delete_image():
 
     print(mycursor.rowcount, "record(s) deleted")
 
-delete_image
+delete_image()
