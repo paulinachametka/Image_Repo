@@ -2,6 +2,7 @@ from flask import Flask, render_template
 import mysql.connector, os
 from getpass import getpass
 from image_generator import *
+from database_info import *
 
 #f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
 #words = f.read().split()
@@ -19,18 +20,19 @@ mydb = mysql.connector.connect(
 )
 
 
-generate_image()
+#generate_image()
 
-mycursor = mydb.cursor()
-mycursor.execute("SELECT path FROM images")
+#mycursor = mydb.cursor()
+#mycursor.execute("SELECT path FROM images")
 
-image_paths = mycursor.fetchall()
+#image_paths = mycursor.fetchall()
 
-mycursor.execute("SELECT * FROM images")
+#mycursor.execute("SELECT * FROM images")
 
-all_info = mycursor.fetchall()
-print(all_info)
+#all_info = mycursor.fetchall()
+#print(all_info)
 
+create_table()
 
 
 app = Flask(__name__)
@@ -38,8 +40,11 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
     #return render_template('index.html', image=image) 
-    info = image_paths
-    return render_template('index.html',info = info,all_info= all_info )
+
+    #############################################put back after testing
+    #info = image_paths
+    #return render_template('index.html',info = info,all_info= all_info )
+    return render_template('index.html')
 
 
 
