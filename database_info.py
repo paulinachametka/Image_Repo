@@ -130,7 +130,7 @@ def delete_image():
 
     mycursor = mydb.cursor()
 
-    sql = "DELETE FROM images WHERE name = 'elder'"
+    sql = "DELETE FROM images WHERE name = 'spell'"
 
     mycursor.execute(sql)
 
