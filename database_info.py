@@ -130,10 +130,12 @@ def delete_image():
 
     mycursor = mydb.cursor()
 
-    sql = "DELETE FROM images WHERE name = 'soap'"
+    sql = "DELETE FROM images WHERE name = 'pull'"
 
     mycursor.execute(sql)
 
     mydb.commit()
 
     print(mycursor.rowcount, "record(s) deleted")
+
+delete_image()
