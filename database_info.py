@@ -137,5 +137,3 @@ def delete_image():
     mydb.commit()
 
     print(mycursor.rowcount, "record(s) deleted")
-
-delete_image()
