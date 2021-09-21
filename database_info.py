@@ -8,13 +8,17 @@ def drop_table():
     #words = f.read().split()
     db_user = os.getenv("db_user", "optional-default")
     db_password = os.getenv("db_password", "optional-default")
+    db_host = os.getenv("db_host", "optional-default")
+    db_db = os.getenv("db_db", "optional-default")
+
 
     mydb = mysql.connector.connect(
-    host="localhost",
-    user=db_user,
+    host=db_host,
+    user= db_user,
     password=db_password,
-    database="dbimages"
-)
+    database=db_db
+    )
+
 
     mycursor = mydb.cursor()
     sql = "DROP TABLE images"
@@ -44,14 +48,17 @@ def insert_data(name,path):
     #words = f.read().split()
     db_user = os.getenv("db_user", "optional-default")
     db_password = os.getenv("db_password", "optional-default")
+    db_host = os.getenv("db_host", "optional-default")
+    db_db = os.getenv("db_db", "optional-default")
 
 
     mydb = mysql.connector.connect(
-    host="localhost",
+    host=db_host,
     user= db_user,
     password=db_password,
-    database="dbimages"
+    database=db_db
     )
+
 
     mycursor = mydb.cursor()
     
@@ -70,14 +77,17 @@ def query_data():
     #words = f.read().split()
     db_user = os.getenv("db_user", "optional-default")
     db_password = os.getenv("db_password", "optional-default")
+    db_host = os.getenv("db_host", "optional-default")
+    db_db = os.getenv("db_db", "optional-default")
 
 
     mydb = mysql.connector.connect(
-    host="localhost",
+    host=db_host,
     user= db_user,
     password=db_password,
-    database="dbimages"
+    database=db_db
     )
+
 
     mycursor = mydb.cursor()
 
@@ -104,13 +114,17 @@ def delete_image():
     #words = f.read().split()
     db_user = os.getenv("db_user", "optional-default")
     db_password = os.getenv("db_password", "optional-default")
+    db_host = os.getenv("db_host", "optional-default")
+    db_db = os.getenv("db_db", "optional-default")
+
 
     mydb = mysql.connector.connect(
-    host="localhost",
-    user=db_user,
+    host=db_host,
+    user= db_user,
     password=db_password,
-    database="dbimages"
+    database=db_db
     )
+
 
     mycursor = mydb.cursor()
 

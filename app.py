@@ -7,13 +7,15 @@ from image_generator import *
 #words = f.read().split()
 db_user = os.getenv("db_user", "optional-default")
 db_password = os.getenv("db_password", "optional-default")
+db_host = os.getenv("db_host", "optional-default")
+db_db = os.getenv("db_db", "optional-default")
 
 
 mydb = mysql.connector.connect(
-  host="localhost",
+  host=db_host,
   user= db_user,
   password=db_password,
-  database="dbimages"
+  database=db_db
 )
 
 
