@@ -4,34 +4,40 @@ import mysql.connector, os
 
 def drop_table(): 
 
-    f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
-    words = f.read().split()
-    db_user = words[0]
-    db_password = words[1]
+    #f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
+    #words = f.read().split()
+    db_user = os.getenv("db_user", "optional-default")
+    db_password = os.getenv("db_password", "optional-default")
+    db_host = os.getenv("db_host", "optional-default")
+    db_db = os.getenv("db_db", "optional-default")
+
 
     mydb = mysql.connector.connect(
-    host="localhost",
-    user=db_user,
+    host=db_host,
+    user= db_user,
     password=db_password,
-    database="dbimages"
-)
+    database=db_db
+    )
+
 
     mycursor = mydb.cursor()
     sql = "DROP TABLE images"
     mycursor.execute(sql)
 
 def create_table(): 
-    f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
-    words = f.read().split()
-    db_user = words[0]
-    db_password = words[1]
+    #f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
+    #words = f.read().split()
+    db_user = os.getenv("db_user", "optional-default")
+    db_password = os.getenv("db_password", "optional-default")
+    db_host = os.getenv("db_host", "optional-default")
+    db_db = os.getenv("db_db", "optional-default")
 
     mydb = mysql.connector.connect(
-    host="localhost",
-    user=db_user,
+    host=db_host,
+    user= db_user,
     password=db_password,
-    database="dbimages"
-)
+    database=db_db
+    )
 
     mycursor = mydb.cursor()
     mycursor.execute("CREATE TABLE images (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), path VARCHAR(255))")
@@ -40,18 +46,21 @@ def create_table():
 
 def insert_data(name,path): 
 
-    f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
-    words = f.read().split()
-    db_user = words[0]
-    db_password = words[1]
+    #f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
+    #words = f.read().split()
+    db_user = os.getenv("db_user", "optional-default")
+    db_password = os.getenv("db_password", "optional-default")
+    db_host = os.getenv("db_host", "optional-default")
+    db_db = os.getenv("db_db", "optional-default")
 
 
     mydb = mysql.connector.connect(
-    host="localhost",
+    host=db_host,
     user= db_user,
     password=db_password,
-    database="dbimages"
+    database=db_db
     )
+
 
     mycursor = mydb.cursor()
     
@@ -64,23 +73,23 @@ def insert_data(name,path):
     #print(mycursor.rowcount, "record inserted.")
 
 
-
-
-
 def query_data():
 
-    f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
-    words = f.read().split()
-    db_user = words[0]
-    db_password = words[1]
+    #f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
+    #words = f.read().split()
+    db_user = os.getenv("db_user", "optional-default")
+    db_password = os.getenv("db_password", "optional-default")
+    db_host = os.getenv("db_host", "optional-default")
+    db_db = os.getenv("db_db", "optional-default")
 
 
     mydb = mysql.connector.connect(
-    host="localhost",
+    host=db_host,
     user= db_user,
     password=db_password,
-    database="dbimages"
+    database=db_db
     )
+
 
     mycursor = mydb.cursor()
 
@@ -103,21 +112,25 @@ def query_data():
 
 def delete_image(): 
 
-    f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
-    words = f.read().split()
-    db_user = words[0]
-    db_password = words[1]
+    #f = open('C:/Users/pauli/Desktop/credentials.txt', "r")
+    #words = f.read().split()
+    db_user = os.getenv("db_user", "optional-default")
+    db_password = os.getenv("db_password", "optional-default")
+    db_host = os.getenv("db_host", "optional-default")
+    db_db = os.getenv("db_db", "optional-default")
+
 
     mydb = mysql.connector.connect(
-    host="localhost",
-    user=db_user,
+    host=db_host,
+    user= db_user,
     password=db_password,
-    database="dbimages"
+    database=db_db
     )
+
 
     mycursor = mydb.cursor()
 
-    sql = "DELETE FROM images WHERE name = 'fresh'"
+    sql = "DELETE FROM images WHERE name = 'pull'"
 
     mycursor.execute(sql)
 
