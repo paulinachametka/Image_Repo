@@ -139,4 +139,4 @@ def delete_image():
     print(mycursor.rowcount, "record(s) deleted")
 
 
-drop_table()
+create_table()
