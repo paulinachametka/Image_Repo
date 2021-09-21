@@ -20,7 +20,7 @@ mydb = mysql.connector.connect(
 )
 
 
-#generate_image()
+generate_image()
 
 #mycursor = mydb.cursor()
 #mycursor.execute("SELECT path FROM images")
@@ -31,8 +31,6 @@ mydb = mysql.connector.connect(
 
 #all_info = mycursor.fetchall()
 #print(all_info)
-
-create_table()
 
 
 app = Flask(__name__)
