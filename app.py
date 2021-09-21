@@ -22,14 +22,14 @@ mydb = mysql.connector.connect(
 
 generate_image()
 
-#mycursor = mydb.cursor()
-#mycursor.execute("SELECT path FROM images")
+mycursor = mydb.cursor()
+mycursor.execute("SELECT path FROM images")
 
-#image_paths = mycursor.fetchall()
+image_paths = mycursor.fetchall()
 
-#mycursor.execute("SELECT * FROM images")
+mycursor.execute("SELECT * FROM images")
 
-#all_info = mycursor.fetchall()
+all_info = mycursor.fetchall()
 #print(all_info)
 
 
@@ -40,9 +40,9 @@ def hello_world():
     #return render_template('index.html', image=image) 
 
     #############################################put back after testing
-    #info = image_paths
-    #return render_template('index.html',info = info,all_info= all_info )
-    return render_template('index.html')
+    info = image_paths
+    return render_template('index.html',info = info,all_info= all_info )
+    #return render_template('index.html')
 
 
 
