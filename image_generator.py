@@ -1,5 +1,4 @@
 import requests
-from random_word import RandomWords
 import urllib.request
 import json
 import random
