@@ -29,7 +29,7 @@ def generate_image():
     #url = 'https://api.deepai.org/job-view-file/773a9572-98f5-4d6a-a933-cc929b0f7df9/outputs/output.jpg'
 
     #string = r"C:\Users\pauli\Documents\Github\Image_Repo\static\images\ " + str(word) + '.png'
-    string = r"C:\Users\pauli\Documents\Github\Image_Repo\static\images\ " + str(word) + '.png'
+    #string = r"C:\Users\pauli\Documents\Github\Image_Repo\static\images\ " + str(word) + '.png'
 
 
     response = requests.get(url)
