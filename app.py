@@ -30,7 +30,7 @@ image_paths = mycursor.fetchall()
 mycursor.execute("SELECT * FROM images")
 
 all_info = mycursor.fetchall()
-#print(all_info)
+print(all_info)
 
 
 app = Flask(__name__)
